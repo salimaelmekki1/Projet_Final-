@@ -1,0 +1,183 @@
+/* Styles spécifiques pour la page calendrier */
+body {
+    background: linear-gradient(135deg, rgb(11, 40, 172) 0%, rgb(150, 198, 233) 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main h1 {
+    color: white;
+    text-align: center;
+    font-size: 2.8rem;
+    margin: 2rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#calendrier-matchs {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    margin: 2rem auto;
+}
+
+.match-item {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.match-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #2196f3, #1976d2);
+}
+
+.match-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.match-item h3 {
+    color: #1a237e;
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.match-item h3::before {
+    content: '⚽';
+    font-size: 1.5rem;
+}
+
+.match-item p {
+    color: #333;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.match-item i {
+    color: #2196f3;
+    width: 24px;
+    font-size: 1.3rem;
+}
+
+.match-item .btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background: #2196f3;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
+}
+
+.match-item .btn:hover {
+    background: #1976d2;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+/* Animation pour les matchs */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.match-item {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Styles responsifs */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    main h1 {
+        font-size: 2rem;
+        margin: 1.5rem 0;
+    }
+
+    #calendrier-matchs {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .match-item {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .match-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .match-item p {
+        font-size: 1rem;
+    }
+
+    .match-item .btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* État de chargement */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* Message quand il n'y a pas de matchs */
+.no-matches {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    font-size: 1.2rem;
+    background: white;
+    border-radius: 15px;
+    margin: 2rem 0;
+} 
