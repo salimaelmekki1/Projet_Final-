@@ -1,0 +1,249 @@
+/* Style dédié à la page Savoir Plus */
+
+.savoir-section {
+    margin-top: 120px;
+    padding: 60px 24px 40px 24px;
+    background: linear-gradient(120deg, #e3f0ff 0%, #b6d0f7 100%);
+    border-radius: 32px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    animation: fadeInSavoir 1s;
+    position: relative;
+}
+
+@keyframes fadeInSavoir {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.savoir-title {
+    font-size: 2.8rem;
+    color: #0d1a4d;
+    text-align: center;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    font-weight: 800;
+    text-shadow: 0 2px 8px #b6d0f7;
+}
+
+.savoir-underline {
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, #FFD700 60%, #1976d2 100%);
+    margin: 0 auto 32px auto;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px #FFD70044;
+}
+
+.savoir-content {
+    font-size: 1.22rem;
+    color: #1a237e;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 12px;
+    padding: 18px 22px;
+    box-shadow: 0 2px 12px rgba(25, 118, 210, 0.07);
+    transition: box-shadow 0.3s;
+}
+.savoir-content:hover {
+    box-shadow: 0 6px 24px rgba(25, 118, 210, 0.13);
+}
+
+.savoir-image-placeholder {
+    width: 100%;
+    height: 260px;
+    background: linear-gradient(135deg, #dbeafe 60%, #b6d0f7 100%);
+    border: 2.5px dashed #90caf9;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1976d2;
+    font-size: 1.25rem;
+    margin: 36px 0;
+    font-style: italic;
+    transition: background 0.3s, border-color 0.3s;
+}
+.savoir-image-placeholder:hover {
+    background: linear-gradient(135deg, #b6d0f7 60%, #dbeafe 100%);
+    border-color: #1976d2;
+}
+
+.savoir-list {
+    margin: 30px 0 0 0;
+    padding-left: 28px;
+}
+.savoir-list li {
+    margin-bottom: 14px;
+    font-size: 1.11rem;
+    color: #0d1a4d;
+    position: relative;
+    padding-left: 18px;
+    transition: color 0.2s;
+}
+.savoir-list li::before {
+    content: '\25CF';
+    color: #FFD700;
+    position: absolute;
+    left: 0;
+    font-size: 1.1em;
+    top: 0.1em;
+}
+.savoir-list li:hover {
+    color: #1976d2;
+}
+
+.cta-button {
+    margin-top: 18px;
+    background: linear-gradient(45deg, #FFD700, #1976d2);
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: bold;
+    padding: 15px 44px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 18px rgba(25, 118, 210, 0.13);
+}
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 10px 30px rgba(25, 118, 210, 0.18);
+    background: linear-gradient(45deg, #1976d2, #FFD700);
+}
+
+@media (max-width: 700px) {
+    .savoir-section { padding: 30px 5px; }
+    .savoir-title { font-size: 2rem; }
+    .savoir-content { font-size: 1.05rem; padding: 10px 8px; }
+    .savoir-image-placeholder { height: 140px; font-size: 1rem; }
+}
+
+/* Style pour les images de la page Savoir Plus */
+.savoir-images-row {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 36px 0 24px 0;
+}
+.savoir-images-row img {
+    max-width: 440px;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(25, 118, 210, 0.15), 0 2px 12px #FFD70033;
+    transition: transform 0.35s, box-shadow 0.35s;
+    margin-bottom: 0;
+    background: #f4f8ff;
+}
+.savoir-images-row img:hover {
+    transform: scale(1.045) rotate(-1deg);
+    box-shadow: 0 16px 40px rgba(25, 118, 210, 0.22), 0 2px 12px #FFD70055;
+    z-index: 2;
+}
+
+/* Pour les images seules (hors .savoir-images-row) */
+.savoir-section > img {
+    display: block;
+    margin: 36px auto 24px auto;
+    max-width: 440px;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(25, 118, 210, 0.15), 0 2px 12px #FFD70033;
+    transition: transform 0.35s, box-shadow 0.35s;
+    background: #f4f8ff;
+}
+.savoir-section > img:hover {
+    transform: scale(1.045) rotate(-1deg);
+    box-shadow: 0 16px 40px rgba(25, 118, 210, 0.22), 0 2px 12px #FFD70055;
+    z-index: 2;
+}
+
+@media (max-width: 900px) {
+    .savoir-images-row {
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;
+    }
+    .savoir-images-row1 img, .savoir-section > img {
+        max-width: 98vw;
+        height: 180px;
+    }
+}
+@media (max-width: 600px) {
+    .savoir-images-row1 img, .savoir-section > img {
+        height: 120px;
+        border-radius: 14px;
+    }
+} 
+
+/* Style pour les images de la page Savoir Plus */
+.savoir-images-row1 {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 36px 0 24px 0;
+}
+.savoir-images-row1 img {
+    max-width: 440px;
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(25, 118, 210, 0.15), 0 2px 12px #FFD70033;
+    transition: transform 0.35s, box-shadow 0.35s;
+    margin-bottom: 0;
+    background: #f4f8ff;
+}
+.savoir-images-row1 img:hover {
+    transform: scale(1.045) rotate(-1deg);
+    box-shadow: 0 16px 40px rgba(25, 118, 210, 0.22), 0 2px 12px #FFD70055;
+    z-index: 2;
+}
+
+/* Pour les images seules (hors .savoir-images-row) */
+.savoir-section > img {
+    display: block;
+    margin: 36px auto 24px auto;
+    max-width: 440px;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(25, 118, 210, 0.15), 0 2px 12px #FFD70033;
+    transition: transform 0.35s, box-shadow 0.35s;
+    background: #f4f8ff;
+}
+.savoir-section > img:hover {
+    transform: scale(1.045) rotate(-1deg);
+    box-shadow: 0 16px 40px rgba(25, 118, 210, 0.22), 0 2px 12px #FFD70055;
+    z-index: 2;
+}
+
+@media (max-width: 900px) {
+    .savoir-images-row1 {
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;
+    }
+    .savoir-images-row1 img, .savoir-section > img {
+        max-width: 98vw;
+        height: 180px;
+    }
+}
+@media (max-width: 600px) {
+    .savoir-images-row img, .savoir-section > img {
+        height: 120px;
+        border-radius: 14px;
+    }
+} 
