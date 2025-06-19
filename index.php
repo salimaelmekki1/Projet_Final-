@@ -1,20 +1,17 @@
-<?php
-session_start();
-?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Accueil - Réservation de Tickets</title>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index1.css">
+    <link rel="stylesheet" href="css/header1.css">
+    
     
 </head>
 <body>
-
-<?php include 'includes/header.php'; ?>
-
+<?php include 'header1.php'; ?>
 
 
 <main class="hero">
@@ -55,7 +52,7 @@ session_start();
                 une plateforme facile, rapide et fiable pour réserver vos tickets et vivre 
                 des matchs palpitants. Rejoignez-nous et ne ratez plus aucun grand événement !
             </p>
-            <a href="details.php" class="cta-button">Lire Plus</a>
+            <a href="savoir_plus.php" class="cta-button">Lire Plus</a>
         </div>
         <div class="who-images">
             <img src="images/img1.png" alt="Match de football" class="main-image">
@@ -89,22 +86,48 @@ session_start();
 
     <!-- Formulaire -->
     <div class="contact-container">
-      
-
-
-        <form action="traitement_contact.php" method="post">
-     <div class="form-group">
-    <input type="text" name="name" placeholder="Nom" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="tel" name="phone" placeholder="Téléphone">
-    <textarea name="message" placeholder="Votre message" required></textarea>
-
-       </div>
+        <div class="message_content"></div>
+        <form id="contactForm" method="post">
+    <div class="form-group">
+        <input type="text" name="name" placeholder="Nom" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Téléphone">
+        <textarea name="message" placeholder="Votre message" required></textarea>
+    </div>
     <button type="submit" class="cta-button">Envoyer</button>
 </form>
+
+        
 
     </div>
 </section>
 <script src="js/index.js"></script>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Empêche le rechargement de la page
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch('traitement_contact.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        const msgDiv = document.querySelector('.message_content');
+        msgDiv.innerHTML = `<div class="message-box ${data.status}">${data.message}</div>`;
+
+        if (data.status === 'success') {
+            form.reset();
+        }
+    })
+    .catch(error => {
+        document.querySelector('.message_content').innerHTML =
+            `<div class="message-box error">Erreur réseau : ${error.message}</div>`;
+    });
+});
+</script>
+
 </body>
 </html>
