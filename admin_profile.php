@@ -18,7 +18,7 @@ if (isset($_POST['add_match'])) {
 
     $stmt = $conn->prepare("INSERT INTO matchs (equipe1_id, equipe2_id, date_match, heure_match, lieu) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("iisss", $equipe1_id, $equipe2_id, $date_match, $heure_match, $lieu);
-    
+
     if ($stmt->execute()) {
         $success = "Match ajouté avec succès.";
     } else {
@@ -30,12 +30,12 @@ if (isset($_POST['add_match'])) {
 if (isset($_POST['add_ticket'])) {
     $match_id = $_POST['match_id'];
     $type = $_POST['type'];
-    $prix = $_POST['prix'];
+    $prix = $_POST['prix_base'];
     $quantite_disponible = $_POST['quantite_disponible'];
 
-    $stmt = $conn->prepare("INSERT INTO tickets (match_id, type, prix, quantite_disponible) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO tickets (match_id, type, prix_base, quantite_disponible) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("isdi", $match_id, $type, $prix, $quantite_disponible);
-    
+
     if ($stmt->execute()) {
         $success = "Ticket ajouté avec succès.";
     } else {
@@ -160,8 +160,8 @@ $messages_non_repondu = $conn->query("
                         <input type="text" name="type" id="type" required placeholder="ex: VIP, Standard, etc.">
                     </div>
                     <div class="form-group">
-                        <label for="prix">Prix</label>
-                        <input type="number" name="prix" id="prix" step="0.01" required>
+                        <label for="prix_base">Prix</label>
+                        <input type="number" name="prix_base" id="prix_base" step="0.01" required>
                     </div>
                     <div class="form-group">
                         <label for="quantite_disponible">Quantité disponible</label>
@@ -190,4 +190,4 @@ $messages_non_repondu = $conn->query("
 
     <?php include 'includes/footer.php'; ?>
 </body>
-</html> 
+</html>
